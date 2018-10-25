@@ -14,6 +14,8 @@ require 'faker'
     patient = Patient.create!(first_name: Faker::FunnyName.name, last_name: Faker::FunnyName.name, city:city) 
     appointment = Appointment.create!(date: Faker::Date.between(2.days.ago, Date.today), doctor: doctor, patient: patient, city:city) 
     specialty = Specialty.create!(name: Faker::FunnyName.name)
+    doctor.specialties << specialty
+    specialty.doctors << doctor
 end 
 
 
